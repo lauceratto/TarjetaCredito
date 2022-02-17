@@ -1,0 +1,18 @@
+.type2{
+    background: rgba(146, 248, 150, 0.1) ;
+    color: rgb(255, 255, 255);
+    border-color: aliceblue;
+    border-radius: 10px 0 10px 0;
+    width: 15%;
+    position: relative;
+    top: 190px; left: 490px;
+}
+.type{
+    background: rgba(146, 248, 150, 0.1) ;
+    color: rgb(255, 255, 255);
+    border-color: aliceblue;
+    border-radius: 10px 0 10px 0;
+    width: 15%;
+    position: relative;
+    top: 190px; left: 600px;
+}

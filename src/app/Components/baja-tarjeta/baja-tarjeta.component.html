@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="titulo">Listado de Tarjetas</h6>
+                    <table class="table">
+                        <tbody>
+                            <!--Recorre el arreglo de listas de tarjetas y las setea en la tabla-->
+                            <tr *ngFor="let tarjetas of listTarjetas; let i=index">
+                                <td>{{tarjetas.titular}}</td>
+                                <td>{{tarjetas.nroTarjeta}}</td>
+                                <td>{{tarjetas.fechaVencimiento}}</td>
+                                <!--let i= index nos da el valor del indice del arreglo y se manda para eliminar-->
+                                <td><i (click)="eliminarTarjeta(i)" class="fa-solid fa-trash-can text-danger"></i></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    <div class="d-grid gap-2" >
+                        <button  class="btn btn-success btn-lg mt-1" (click)="volverAtras2()">Volver</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

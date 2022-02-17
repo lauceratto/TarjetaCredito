@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta Tarjeta</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row mt-4">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="titulo">Agregar Tarjeta</h6>
+                        <!--Crea el formulario con los distintos campos a completar. El submit es para que cuando se oprima aceptar, se llame al metodo-->
+                        <form [formGroup]="form" (ngSubmit)="agregarTarjeta()">
+                            <div class="input-group input-group-lg mb-3">
+                                <span class="input-group-text">
+                                    <i class="fa fa-circle-user" [class.green-icon]="this.form.get('titular')?.valid"
+                                        [class.red-icon]="this.form.get('titular')?.invalid && this.form.get('titular')?.touched"></i>
+                                    <!--[class.green-icon]="this.form.get('titular')?.valid -> va a poner el icono en verde cuando es valido
+                        red-icon nos mostrara en rojo cuando sea invalido. Touched da verdadero cuando el usuario comienza a escribir-->
+                                </span>
+                                <input formControlName="titular" type="text" class="form-control" placeholder="Titular">
+                            </div>
+                            <div class="input-group input-group-lg mb-3">
+                                <span class="input-group-text"><i class="fa fa-credit-card"
+                                        [class.green-icon]="this.form.get('nroTarjeta')?.valid"
+                                        [class.red-icon]="this.form.get('nroTarjeta')?.invalid && this.form.get('nroTarjeta')?.touched"></i></span>
+                                <input formControlName="nroTarjeta" maxlength="16" type="text" class="form-control"
+                                    placeholder="Nro. Tarjeta" id="nro">
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <div class="input-group input-group-lg mb-3">
+                                        <span class="input-group-text"><i class="fa fa-calendar-days"
+                                                [class.green-icon]="this.form.get('fechaVencimiento')?.valid"
+                                                [class.red-icon]="this.form.get('fechaVencimiento')?.invalid && this.form.get('fechaVencimiento')?.touched"></i></span>
+                                        <input formControlName="fechaVencimiento" maxlength="5" type="text"
+                                            class="form-control" placeholder="MM/AA">
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="input-group input-group-lg mb-3">
+                                        <span class="input-group-text"><i class="fa fa-key"
+                                                [class.green-icon]="this.form.get('cvv')?.valid"
+                                                [class.red-icon]="this.form.get('cvv')?.invalid && this.form.get('cvv')?.touched"></i></span>
+                                        <input formControlName="cvv" maxlength="3" type="password" class="form-control"
+                                            placeholder="Cod. Seguridad">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button [disabled]="this.form.invalid" type="submit" class="btn btn-success btn-lg"> <i
+                                        class="fa-solid fa-database"></i>&nbsp; Aceptar</button>
+                            </div>
+                        </form>
+                        <div class="d-grid gap-2" >
+                            <button  class="btn btn-success btn-lg mt-2" (click)="volverAtras()">Volver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <!--
+    <div class="card-group">
+        <div class="card-p">
+
+            <div class="numero" >1234 5678 9012 3456</div>
+            <div class="nombre" >###################</div>
+            <div class="from">10/19</div>
+            <div class="to">06/21</div>
+        </div>
+    </div>
+    <input #nombre (keyup)="onKeyUp(nombre.value)">
+    <p>{{text}}</p>-->
+</body>
+
+</html>
